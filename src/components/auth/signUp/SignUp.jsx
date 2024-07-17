@@ -25,7 +25,7 @@ const SignUp = () => {
           timer: 1500
         });
         reset();
-        navigate('/'); 
+        
       })
       .catch(error => {
         console.error('Registration error:', error.response.data);
@@ -77,13 +77,13 @@ const SignUp = () => {
           name="mobile"
           {...register("mobile", {
             required: true,
-            pattern: /^[0-9]{10}$/
+            pattern: /^[0-9]{11}$/
           })}
           placeholder="Mobile number"
           className="input input-bordered"
         />
         {errors.mobile?.type === 'required' && <span className="text-red-700 italic">Mobile number is required</span>}
-        {errors.mobile?.type === 'pattern' && <span className="text-red-700 italic">Mobile number must be a 10-digit number</span>}
+        {errors.mobile?.type === 'pattern' && <span className="text-red-700 italic">Mobile number must be a 11-digit number</span>}
       </div>
       
       <div className="form-control">

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { NavLink } from 'react-router-dom';
 
 const DrawerDashboard = ({ currentUser, onClose, isDrawerOpen }) => {
@@ -14,13 +14,19 @@ const DrawerDashboard = ({ currentUser, onClose, isDrawerOpen }) => {
       </div>
 
       {currentUser && (
-        <div>
-          <p className="text-lg font-semibold">Welcome, {currentUser.name}</p>
+        <div className='mt-10'>
+            <hr></hr>
+            <p className="text-lg font-semibold text-center pt-4">Welcome</p>
+          <p className="text-md font-semibold text-center">{currentUser.name}</p>
+          <p className="text-md font-semibold text-center">{currentUser.email}</p>
+          <p className="text-md font-semibold text-center">Phone: {currentUser.mobile}</p>
+          <p className="text-md font-semibold text-center pb-4">Balance: {currentUser.balance} tk</p>
+          <hr></hr>
           <nav className="mt-4">
             {currentUser.role === 'user' && (
               <>
                 <NavLink to="/transactions" className="block py-2 hover:bg-gray-800">Transactions</NavLink>
-                <NavLink to="/profile" className="block py-2 hover:bg-gray-800">Profile Settings</NavLink>
+                <NavLink to="/cashIn" className="block py-2 hover:bg-gray-800">Cash In</NavLink>
               </>
             )}
             {currentUser.role === 'agent' && (
